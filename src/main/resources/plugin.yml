@@ -1,0 +1,6 @@
+name: sbPortals
+version: '${project.version}'
+main: lt.tomexas.sbportals.Skyblock
+api-version: 1.17
+depend:
+  - SuperiorSkyblock2
