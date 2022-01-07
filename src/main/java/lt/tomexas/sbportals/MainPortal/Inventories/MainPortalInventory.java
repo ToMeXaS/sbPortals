@@ -18,7 +18,8 @@ public class MainPortalInventory implements InventoryHolder {
     private final int[] town2slots = { 3, 4, 5, 6, 7, 8, 12, 13, 14, 15, 16, 17, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44 };
 
     public MainPortalInventory() {
-        inv = Bukkit.createInventory(null, 45, "§f\uF808\uE003\uF80C\uF809\uF809\uF802§8\uE004§f\uF80A\uF808\uF802\uE007\uF827§8\uE008§f\uF80A\uF808\uF802\uE007\uF827§8\uE008§f\uF80A\uF808\uF802\uE007" +
+        inv = Bukkit.createInventory(null, 45, "" +
+                "§f\uF808\uE003\uF80C\uF809\uF809\uF802§8\uE004§f\uF80A\uF808\uF802\uE007\uF827§8\uE008§f\uF80A\uF808\uF802\uE007\uF827§8\uE008§f\uF80A\uF808\uF802\uE007" +
                 "\uF80C\uF809\uF802§8\uE010§f\uF80A\uF808\uF802\uE011\uF827§8\uE010§f\uF80A\uF808\uF802\uE011\uF827§8\uE010§f\uF80A\uF808\uF802\uE011");
         String town1name = "&e&lArchangel visata";
         List<String> town1lore = Arrays.asList(
