@@ -4,11 +4,14 @@ import com.bgsoftware.superiorskyblock.api.SuperiorSkyblockAPI;
 import com.bgsoftware.superiorskyblock.api.island.Island;
 import com.guillaumevdn.questcreator.data.user.UserQC;
 import com.guillaumevdn.questcreator.lib.quest.QuestEndType;
+import dev.lone.itemsadder.api.CustomBlock;
 import lt.tomexas.sbportals.Skyblock;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.block.Block;
+import org.bukkit.block.BlockFace;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -99,12 +102,11 @@ public class MainPortalInventoryClickListener implements Listener {
         Island island = SuperiorSkyblockAPI.getPlayer(player).getIsland();
 
         if (island == null) return;
+        if (event.getTo() == null) return;
+        if (event.getTo().getBlockX() == event.getFrom().getBlockX() && event.getTo().getBlockZ() == event.getFrom().getBlockZ()) return;
 
-        Location location = this.plugin.portalLoc.get(island);
-        if (player.getWorld().getName().equals("SuperiorWorld")
-                && !event.getFrom().getBlock().getType().equals(Material.END_PORTAL_FRAME)
-                && event.getTo().getBlock().getType().equals(Material.END_PORTAL_FRAME)
-                && event.getTo().getBlock().getLocation().equals(location)) {
+        CustomBlock customBlock = CustomBlock.byAlreadyPlaced(event.getTo().getBlock().getRelative(BlockFace.DOWN));
+        if (customBlock != null) {
             UserQC.processWithQuests(player.getUniqueId(), user -> {
                 if (!user.getQuestHistory().hasElement("9", Collections.singleton(QuestEndType.SUCCESS))) {
                     player.openInventory(inv);

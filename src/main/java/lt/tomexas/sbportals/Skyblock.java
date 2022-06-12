@@ -62,7 +62,6 @@ public final class Skyblock extends JavaPlugin {
         for (Island island : SuperiorSkyblockAPI.getGrid().getIslands()) {
             this.saveRestore.restorePortalLoc(island);
             this.saveRestore.restoreCPortalLoc(island);
-            this.creator.createPortalParticle(island);
         }
 
         for (Location location : portalHash.keySet())

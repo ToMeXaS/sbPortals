@@ -4,3 +4,5 @@ main: lt.tomexas.sbportals.Skyblock
 api-version: 1.17
 depend:
   - SuperiorSkyblock2
+  - QuestCreator
+  - ItemsAdder
